@@ -1,6 +1,6 @@
 #Name : Andrew Pang, Teng Sin Hui
 #Date : 8 Mar 2019
-#Task 2 : Numerical Operations
+#Task 4
 
 x = int(input("Enter x value : ")) #Retrieves user input for x value and converts to integer
 n = int(input("Enter n value : ")) #Same for n value
