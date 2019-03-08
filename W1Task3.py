@@ -1,6 +1,6 @@
 #Name : Andrew Pang, Teng Sin Hui
 #Date : 8 Mar 2019
-#Task 2 : Numerical Operations
+#Task 3
 
 x = input("Insert temperature in Fahrenheit: ") #Retrieves user input
 xi = float(x) #Converts user input to float
