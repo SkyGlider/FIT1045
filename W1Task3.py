@@ -1,4 +1,8 @@
-x = input("Insert temperature in Fahrenheit: ")
-xi = int(x)
-ans = (xi -32) * 5/9
-print( x + " Fahrenheit is " + str(ans) + " degrees Celcius")
+#Name : Andrew Pang, Teng Sin Hui
+#Date : 8 Mar 2019
+#Task 2 : Numerical Operations
+
+x = input("Insert temperature in Fahrenheit: ") #Retrieves user input
+xi = float(x) #Converts user input to float
+ans = (xi -32) * 5/9 #Converts celcius to fahrenheit
+print( x + " Fahrenheit is " + str(ans) + " degrees Celcius") #Prints the answer
