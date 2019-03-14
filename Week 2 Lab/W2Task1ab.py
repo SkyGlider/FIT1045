@@ -1,6 +1,6 @@
-#Name : Andrew Pang, Teng Sin Hui
+#Name : Andrew Pang
 #Date : 8 Mar 2019
-#Task 5 
+#Task 1(a&b)  
 
 import random #imports random module
 
@@ -22,14 +22,10 @@ for z in range (1,y + 1) :
         result = True
         j += 1
     print(" Coin flip " + str(z) + " returns heads : " + str(result)) #prints the results for each coin flip
-z += 1
 
-#information more info on all the coin flips (for verification purpose)
+
+#more info on all the coin flips (for verification purpose)
 print( "Total heads : " + str(j)) 
 print( "Total tails : " + str(i))
-print( "Percentage of heads : " + str(j*100/y) + "%")
-
-    
-        
-
-
+print( "Ratio of heads : " + str(j/y))
+print( "Ratio of tails : " + str(i/y))
