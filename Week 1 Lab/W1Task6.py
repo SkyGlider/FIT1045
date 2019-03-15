@@ -4,10 +4,14 @@
 
 import math #imports math module
 
-usrname = input("Enter your name : ") #get user's name
+#get user's name
+usrname = input("Enter your name : ")
 
-usrlength = len(usrname) #calculate length of username
-print("The length of your name is " + str(usrlength) + " characters long") #prints the answer above
+#calculate length of username
+usrlength = len(usrname)
+
+#prints the answer above
+print("The length of your name is " + str(usrlength) + " characters long") 
 
 #counts the number of each vowel in the username
 na = usrname.count("a")

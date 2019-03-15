@@ -4,24 +4,32 @@
 
 import random #imports random module
 
-x = float(input("Enter your bias for heads (eg.0.4) : ")) #retrieves bias from user
-y = int(input("Enter number of coin flips (eg. 15) : ")) #retrieves no. of coin flips from user
+#retrieves bias from user
+x = float(input("Enter your bias for heads (eg.0.4) : "))
+#retrieves no. of coin flips from user
+y = int(input("Enter number of coin flips (eg. 15) : ")) 
 
-#parameters
-result = True 
+#variables
+result = True
+
+#cumulative counters
 i = 0 
 j = 0
 
 #runs the code for y number of times (no. of coin flips)
 for z in range (1,y + 1) :
+    
     #gives a 'True' result if its a heads and vice versa
+    #if random generated number is less than the bias, it is a heads
     if random.random() > x : 
         result = False
         i += 1       
     else :
         result = True
         j += 1
-    print(" Coin flip " + str(z) + " returns heads : " + str(result)) #prints the results for each coin flip
+        
+    #prints the results for each coin flip
+    print(" Coin flip " + str(z) + " returns heads : " + str(result)) 
 
 
 #more info on all the coin flips (for verification purpose)
