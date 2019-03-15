@@ -7,8 +7,9 @@ import math #imports math module
 #get user's name
 usrname = input("Enter your name : ")
 
+
 #calculate length of username
-usrlength = len(usrname)
+usrlength = len(usrname) - usrname.count(" ")
 
 #prints the answer above
 print("The length of your name is " + str(usrlength) + " characters long") 

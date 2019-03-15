@@ -12,7 +12,7 @@ x = 0
 #for loop for value y, and value z within for loop y
 for y in range(i,n+1) :               
    
-   for z in range(i,y+1) :             
+   for z in range(1,y+1) :             
  
       output = 2*(y**2) + 4*(z)        #note: 2*(the previous number in y)^2 + 2*(current number of z)    
       x = x + output                   

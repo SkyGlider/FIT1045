@@ -1,25 +1,28 @@
 import random
 
-#define the function draw() which returns the computer's guess in the form of string
-def draw() :
+#define the function draw() which returns the result in the form of string
+def draw(usr_choice,com_choice) :
+        
+        #if,else statement to check if user wins or loses or draws, and returns r
+        if usr_choice == com_choice :
+              r = "Draw"
+        elif usr_choice == "rock" and com_choice == "scissors" :
+              r = "Win!"
+        elif usr_choice == "paper" and com_choice == "scissors" :
+              r = "Lose!"
+        elif usr_choice == "scissors" and com_choice == "paper" :
+              r = "Win!"
+        elif usr_choice == "rock" and com_choice == "paper" :
+              r = "Lose!"
+        elif usr_choice == "paper" and com_choice == "rock" :
+              r = "Win!"
+        elif usr_choice == "scissors" and com_choice == "rock" :
+              r = "Lose!"
+        else :
+              print("Invalid")
+              r = None
 
-        #using randrange to generate random number from 1 to 3 inclusive
-        x = random.randrange(1,4)
-        #y is empty string
-        y = ""
-
-        #from the results of randrange, assiciate each number to each result        
-        if x == 1 :
-            y = "scissors"
-        elif x == 2 :
-            y = "paper"
-        elif x == 3 :
-            y = "rock"
-
-        #prints computer's guess
-        print("Computer chose " + y)
-
-        return y
+        return r
 
 #indefinite loop so the game never ends unless...
 while True :
@@ -31,27 +34,31 @@ while True :
         #code to break the indefinite loop so user can quit game
         if usr_ans == "quit":
                 break
-        
-        #calls the draw() function and assigns the returned answer to com_ans
-        com_ans = draw()
 
-        #if,else statement to check if user wins or loses or draws, and prints the results
-        if usr_ans == com_ans :
-              print("It's a draw")
-        elif usr_ans == "rock" and com_ans == "scissors" :
-              print("You win!")
-        elif usr_ans == "paper" and com_ans == "scissors" :
-              print("You lose!")
-        elif usr_ans == "scissors" and com_ans == "paper" :
-              print("You win!")
-        elif usr_ans == "rock" and com_ans == "paper" :
-              print("You lose!")
-        elif usr_ans == "paper" and com_ans == "scissors" :
-              print("You win!")
-        elif usr_ans == "scissors" and com_ans == "rock" :
-              print("You lose!")
-        else :
-              print("Your answer is invalid, so you lose!")
+        #using randrange to generate random number from 1 to 3 inclusive
+        x = random.randrange(1,4)
+        
+        
+
+        #from the results of randrange, assiciate each number to each result        
+        if x == 1 :
+            y = "scissors"
+        elif x == 2 :
+            y = "paper"
+        elif x == 3 :
+            y = "rock"
+
+        #prints computer's guess
+        print("Computer chose " + y)
+        
+        #calls the draw() function and assigns the returned answer to result
+        result = draw(usr_ans,y)
+
+        #if user did not enter garbage, their result will be printed
+        if not result == None :
+                print("You " + result)
+
+        
 
       
         
