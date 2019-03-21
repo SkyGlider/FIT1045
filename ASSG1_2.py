@@ -101,7 +101,7 @@ def next_state(board, player, pos) :
 
         if valid_pos2 == []:
             next_player = 0
-        else
+        else:
             print('No more moves')
      
           
