@@ -15,7 +15,7 @@ def print_board(board) :
     print('0 [a, b, c, d, e, f, g, h]')
     for i in range(len(board)) :
         print(str(i+1) + " " + str(board[i]))
-
+    print('##########################')
 def score(board) :
     bl = 0
     wh = 0
@@ -103,8 +103,9 @@ def next_state(board, player, pos) :
             next_player = 0
         else:
             print('No more moves')
-     
-          
+
+        next_board = board
+               
      else:
          print('Invalid Move!')
          next_board = board
@@ -120,8 +121,6 @@ def switch(board, player, pos) :
     else :
         opponent = 1
       
-    
-    
     for row in range (-1,2):    
         for col in range (-1,2):
             
@@ -135,9 +134,7 @@ def switch(board, player, pos) :
                 if stone_adj == player:
 
                     for i in range(len(chg_list)):
-                        
                         board [chg_list[i][0]] [chg_list[i][1]] = player
-                    
                     break
             
                 elif stone_adj == opponent:            
@@ -168,21 +165,112 @@ def position(string):
 
     return pos
 
-gameboard = new_board()
-player = 1
-while True:
-
-    print_board(gameboard)
-    ply_pos = position(input("Player " + str(player) + "'s Choice : "))
-    [gameboard, next_player]  = next_state(gameboard, player, ply_pos)
-   
+def get_pos(board):
+    valid_pos = valid_moves(board,2)
+    if valid_pos == []:
+        return (0,0)
+    max_pts = 0
+    best_pos = None
     
-    if next_player == 0:
-        print(score(gameboard))
-        break
-    else:
-        player = next_player
+    for i in valid_pos :
+        total_pts = 0
+        
+        for row in range (-1,2):    
+            for col in range (-1,2):
+                y_dr = row
+                x_dr = col
+                score = 0
+                while (i[0]+y_dr) < 8 and (i[0]+y_dr) > -1 and (i[1]+x_dr) < 8 and (i[1]+x_dr) > -1  :
+                
+                    stone_adj = board[i[0]+y_dr][i[1]+x_dr]
+                    
+                    if stone_adj == 2:
+                        total_pts += score
+                        break
+            
+                    elif stone_adj == 1:            
+                        score += 1
 
+                    else :
+                        break
+                
+                    y_dr += row
+                    x_dr += col
+                    
+        if total_pts > max_pts :
+            max_pts = total_pts
+            best_pos = i
+            
+    return best_pos
+        
+    
+    
+
+def run_two_players() :
+    gameboard = new_board()
+    player = 1
+    next_player = 2
+    while True:
+        
+        print_board(gameboard)
+        if player == 0:
+            print("GAME OVER!!")
+            print(score(gameboard))
+            break
+                
+        ply_in = input("Player " + str(player) + "'s Choice : ")
+        if len(ply_in) == 2 :
+            
+            ply_pos = position(ply_in)
+            [gameboard, next_player]  = next_state(gameboard, player, ply_pos)
+            player = next_player
+      
+        elif ply_in.lower() == 'q' :
+            print('Game Session End')
+            break
+        
+        else :
+            print("Invalid Move!")
+
+
+def run_one_player():
+    gameboard = new_board()
+    player = 1
+    while True:
+        print_board(gameboard)
+        
+        if player == 1 :
+
+            
+            ply_in = input("Player " + str(player) + "'s Choice : ")
+            
+            if len(ply_in) == 2 :
+                ply_pos = position(ply_in)
+                [gameboard, next_player]  = next_state(gameboard, player, ply_pos)
+                player = next_player
+                
+            elif ply_in.lower() == 'q' :
+                print('Game Session End')
+                break
+            
+            else :
+                print("Invalid Move!")
+            
+        elif player == 2 :
+            ply_pos = get_pos(gameboard)
+            [gameboard, next_player]  = next_state(gameboard, player, ply_pos)
+            player = next_player
+
+        else :
+
+            print("GAME OVER!!")
+            print(score(gameboard))
+            break
+
+print("Welcome to reversi!")
+usr_choice = int(input("Press 1 for Single Player, Press 2 For PvP : "))
+if usr_choice == 1 : run_one_player()
+else: run_two_players()
 
 
 

@@ -28,11 +28,12 @@ def draw(usr_choice,com_choice) :
 while True :
 
         #prompts for the user's input and converts it to lowercase
-        usr_ans = str(input("Enter your choice : "))
+        usr_ans = str(input("Enter your choice (enter 'quit' to exit) : "))
         usr_ans = usr_ans.lower()
         
         #code to break the indefinite loop so user can quit game
         if usr_ans == "quit":
+                print("Thank you for playing!")
                 break
 
         #using randrange to generate random number from 1 to 3 inclusive

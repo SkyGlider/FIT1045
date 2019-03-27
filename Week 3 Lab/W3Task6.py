@@ -9,6 +9,7 @@ def tpose(matrix):
 
     #runs through each column of matrix
     for i in range(len(matrix[0])):
+        
         #empty vector
         new_rows = []
 
@@ -26,13 +27,17 @@ def tpose(matrix):
 def multip(matrix,vector):
      
     new_vector = []
-    
-    for i in range(len(matrix)) :
-        new_vector.append(vector[i] * sum(matrix[i]))
+
+    for i in range(len(matrix)):
+        new_row = []
+        for j in range(len(vector)):
+            new_row.append(vector[j] * matrix [i][j])
+            
+        new_vector.append(sum(new_row))
             
     return new_vector
 
-#print(multip([[1,2],[3,4],[5,6]],[1,2,3]))
+#print(multip([[1,2,3],[1,2,3],[1,2,3],[1,2,3]],[1,2,3]))
 
 def nutrition(usr_list):
 
@@ -65,7 +70,7 @@ def nutrition(usr_list):
     return ans
 
 
-#print(nutrition([1,0,0,3,2,1]))
+print(nutrition([1,0,0,3,2,1]))
     
         
     
