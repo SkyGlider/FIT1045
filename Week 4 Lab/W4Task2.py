@@ -4,12 +4,15 @@
 
 
 import math
+
+'''opens, reads and imports data of the file'''
 z = open('Tides.txt','r')
 z = z.read()
 z = z.replace(' meters','')
 z = z.split('\n')
 
 #PART A
+'''splits every row into a list and convert string data to float'''
 newlist = []
 for i in z :
     newrow = i.split(',')
@@ -20,6 +23,9 @@ for i in z :
 #print(newlist)
 
 #PART B
+'''checks the current date
+if it is same with previus date, max/min val not overwritten
+else, it is overwritten and (set to 0 and inf)'''
 lastday = newlist[0][0]
 max_val = 0
 min_val = math.inf
@@ -39,7 +45,7 @@ for i in newlist :
     lastday = currentday
 
 #PART C
-
+'''use newlist to create timelist, with times of max and min'''
 lastday = newlist[0][0]
 max_val = 0
 min_val = math.inf
@@ -64,6 +70,8 @@ for i in newlist :
         
     lastday = currentday
 
+'''calculates the sum of every high and low tide times'''
+'''calculates the average time'''
 low_sum = 0
 high_sum = 0
 for i in timelist:
