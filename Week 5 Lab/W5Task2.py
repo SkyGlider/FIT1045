@@ -2,10 +2,14 @@
 #5 APRIL 2019
 #TASK 2
 import math
+
 usr_in = input("Enter file name (eg.'Tiny.txt') :")
 
+#opens reads and tidies up the file
+#creates a new list containing data 
 z = open(usr_in,'r')
 z = z.read()
+print(z)
 z = z.strip()
 z = z.split('\n')
 
@@ -19,6 +23,7 @@ for i in z :
 
 def selectionSortDistance(fdata):
     
+    #runs thru every item in list fdata
     for i in range(len(fdata)-1):
         hold = fdata[i][0]
         minval = math.inf

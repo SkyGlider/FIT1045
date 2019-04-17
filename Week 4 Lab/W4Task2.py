@@ -44,6 +44,11 @@ for i in newlist :
         
     lastday = currentday
 
+'''prints the last row'''
+#print( lastday + ' : ' + str(min_val) + ' meters at low, ' + str(max_val) + ' meters at high')
+
+
+
 #PART C
 '''use newlist to create timelist, with times of max and min'''
 lastday = newlist[0][0]
@@ -56,6 +61,7 @@ for i in newlist :
     
     if not lastday == currentday :
         newrow = [ lastday , min_time, min_val, max_time, max_val ]
+        #print(newrow)
         timelist.append(newrow)
         max_val = 0
         min_val = math.inf
@@ -70,6 +76,11 @@ for i in newlist :
         
     lastday = currentday
 
+'''for the last row'''
+newrow = [ lastday , min_time, min_val, max_time, max_val ]
+#print(newrow)
+timelist.append(newrow)
+
 '''calculates the sum of every high and low tide times'''
 '''calculates the average time'''
 low_sum = 0
@@ -81,9 +92,9 @@ for i in timelist:
 high_avg = high_sum/len(timelist)
 low_avg = low_sum/len(timelist)
 
-#print('Over the full period,')
-#print('Average lowest tides occurred at '+ str(low_avg) + ' hours after midnight' )
-#print('Average highest tides occurred at '+ str(high_avg) + ' hours after midnight')
+print('Over the full period,')
+print('Average lowest tides occurred at '+ str(low_avg) + ' hours after midnight' )
+print('Average highest tides occurred at '+ str(high_avg) + ' hours after midnight')
         
         
     

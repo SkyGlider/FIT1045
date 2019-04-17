@@ -4,6 +4,8 @@
 
 usr_in = input("Enter file name (eg.'Tiny.txt') :")
 
+#opens reads and tidies up the file
+#creates a new list containing data 
 z = open(usr_in,'r')
 z = z.read()
 z = z.strip()
@@ -11,6 +13,8 @@ z = z.split('\n')
 
 newz = []
 
+#runs thru every line in list z
+#adds the datum to newz
 for i in z :
     newrow = i.split(',')
     newrow[0] = int(newrow[0])
