@@ -3,7 +3,7 @@
 #ASSIGNMENT 2 TASK 1 - HIRING
 #STARTED: APRIL 2019
 #COMPLETED: APRIL 2019
-#SUBMITTTED:
+#SUBMITTTED: 13 MAY 2019
 
 #datum
 jess = (["php", "java"], 200)
@@ -76,9 +76,9 @@ def best_individual_candidate(project,candidates):
         
 
 #finds the team of best indiidual based on the largest spd
-def team_of_best_individuals(skills_required,candidates) :
+def team_of_best_individuals(project,candidates) :
     
-    pending_skills = skills_required
+    pending_skills = project
     team = []
     
     #take in candidates using greedy approach (largest spd first)
@@ -90,10 +90,14 @@ def team_of_best_individuals(skills_required,candidates) :
     
     return team
 
+#Execute 
+#print(team_of_best_individuals(project,candidates))
 
 #ADDITIONAL FUNCTION
-#NOTE: the function get_combi and lex_suc are from the lecture slides
-#Adapted to suit the needs of this assignment
+#NOTE: the functions get_combi and lex_suc are modifications from 
+#Lecture 11 - Brute Force, slide no. 26 (refer pdf file attached)
+#get_combi is modified from bitlists to suit the needs of this assignment
+
 def get_combi(candidates):
 
     #initialize a bitlist of zeroes(start) and ones(end)
@@ -108,8 +112,8 @@ def get_combi(candidates):
 
     all_combi = []
     #gets the list of all possible combinations of candidates except null
+    
     for i in res:
-
         #using the bitlist, if value 1, the candidate in that index is added
         each_combi = []
         for j in range(len(i)) :
@@ -123,6 +127,8 @@ def get_combi(candidates):
 
 #ADDITIONAL FUNCTION
 #Note: Taken from lecture slides
+#Lecture 11 - Brute Force, slide no. 26 (refer pdf file attached)
+
 def lex_suc(bitlst):
     res = bitlst[:]
     i = len(res) - 1
@@ -137,8 +143,7 @@ def lex_suc(bitlst):
 
 
 #Brute force apporach to find optimal answer
-
-def best_team(skills_required,candidates):
+def best_team(project,candidates):
 
     #gets the cost of all possible combinations of candidates
     #checks for feasibiity of each combination

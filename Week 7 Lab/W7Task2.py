@@ -1,6 +1,7 @@
 #ANDREW PANG
 #FIT 1045
 #WEEK 7 TASK 2
+#12/4/2019
 
 #Adapted from lecture slides, n is length of input list upperbounds
 #last value is therefore, upperbounds
@@ -70,7 +71,7 @@ def brute_force_coin_exc(amount,denoms):
 
 #execute
 total_needed = 8
-denoms_available = [1,5,4]
+denoms_available = [1,4,5]
 print(brute_force_coin_exc(total_needed,denoms_available))
                 
 
